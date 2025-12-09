@@ -1,0 +1,7 @@
+# Virtual Environments
+venv/
+.env/
+*.env
+
+ietfdata/
+ietfdata-dt-cache.sqlite

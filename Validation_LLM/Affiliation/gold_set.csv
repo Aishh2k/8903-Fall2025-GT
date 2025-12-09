@@ -1,0 +1,151 @@
+rfc_id,original_affiliation,llm_normalized,human_normalized,label
+rfc9906,USC/ISI,"University of Southern California, Information Sciences Institute","University of Southern California, Information Sciences Institute",r
+rfc9906,Google,Google,Google,r
+rfc9901,Authlete,Authlete,Authlete,r
+rfc9901,Keio University,Keio University,Keio University,r
+rfc9901,Ping Identity,Ping Identity,Ping Identity,r
+rfc9898,Huawei Technologies,Huawei,Huawei,r
+rfc9898,KPN,Royal KPN,KPN,w
+rfc9898,Verizon Inc.,Verizon Communications,Verizon Communications,r
+rfc9898,Energy Sciences Network,Lawrence Berkeley National Laboratory,Energy Sciences Network,w
+rfc9891,"RKF Engineering Solutions, LLC",RKF Engineering Solutions,RKF Engineering Solutions,r
+rfc9890,YumaWorks,Huawei,YumaWorks,w
+rfc9890,Orange,Orange,Orange,r
+rfc9890,Huawei,Huawei,Huawei,r
+rfc9889,Juniper Networks,Juniper Networks,Juniper Networks,r
+rfc9889,Telefonica,Telefónica,Telefónica,r
+rfc9885,Cisco Systems,Cisco,Cisco Systems,w
+rfc9884,ZTE Corp.,ZTE,ZTE,r
+rfc9884,China Mobile,China Mobile,China Mobile,r
+rfc9884,"Cisco Systems, Inc.",Cisco Systems,Cisco Systems,r
+rfc9884,Blue Fern Consulting,Unknown,Blue Fern Consulting,w
+rfc9883,"Vigil Security, LLC",Vigil Security,Vigil Security,r
+rfc9882,UK National Cyber Security Centre,National Cyber Security Centre (United Kingdom),National Cyber Security Centre (United Kingdom),r
+rfc9882,CryptoNext Security,CryptoNext Security,CryptoNext Security,r
+rfc9881,AWS,Amazon Web Services,Amazon Web Services,r
+rfc9881,sn3rd,Snap Inc.,sn3rd,w
+rfc9881,Cloudflare,Cloudflare,Cloudflare,r
+rfc9879,"Red Hat, Inc.",Red Hat,Red Hat,r
+rfc9878,Ericsson,Ericsson,Ericsson,r
+rfc9878,Deutsche Telekom,Deutsche Telekom AG,Deutsche Telekom,w
+rfc9877,ARIN,American Registry for Internet Numbers,American Registry for Internet Numbers,r
+rfc9877,APNIC,Asia Pacific Network Information Centre,Asia Pacific Network Information Centre,r
+rfc9876,Linaro,Linaro,Linaro,r
+rfc9876,IoTconsultancy.nl,Unknown,IoTconsultancy.nl,w
+rfc9874,Verisign Labs,Verisign,Verisign,r
+rfc9874,Verisign,VeriSign,VeriSign,r
+rfc9874,Stanford University,Stanford University,Stanford University,r
+rfc9873,"VeriSign, Inc.",VeriSign,VeriSign,r
+rfc9870,Nokia,Nokia,Nokia,r
+rfc9869,University of Aberdeen,University of Aberdeen,University of Aberdeen,r
+rfc9868,Independent Consultant,Unknown,Unknown,r
+rfc9868,Unaffiliated,Unknown,Unknown,r
+rfc9867,ELVIS-PLUS,ELVIS+,ELVIS-PLUS,w
+rfc9866,University of Warsaw,University of Warsaw,University of Warsaw,r
+rfc9865,Entrust,Entrust,Entrust,r
+rfc9865,Independent,Unknown,Unknown,r
+rfc9865,Amazon Web Services,Amazon,Amazon Web Services,w
+rfc9864,Self-Issued Consulting,Unknown,Unknown,r
+rfc9864,Transmute,Unknown,Transmute,w
+rfc9863,ZTE Corporation,ZTE,ZTE,r
+rfc9863,Ciena Corporation,Ciena,Ciena,r
+rfc9863,Verizon Communications Inc.,Verizon Communications,Verizon Communications,r
+rfc9862,"Juniper Networks, Inc.",Juniper Networks,Juniper Networks,r
+rfc9861,ABN AMRO Bank,ABN AMRO,ABN AMRO,r
+rfc9861,zkSecurity,zkSecurity,zkSecurity,r
+rfc9861,STMicroelectronics,STMicroelectronics,STMicroelectronics,r
+rfc9861,National Institute of Standards and Technology,National Institute of Standards and Technology,National Institute of Standards and Technology,r
+rfc9861,Radboud University,Radboud University,Radboud University,r
+rfc9860,Futurewei Inc.,Huawei,Huawei,r
+rfc9860,New H3C Technologies,Hewlett Packard Enterprise,H3C Technologies,w
+rfc9859,The Swedish Internet Foundation,The Swedish Internet Foundation,The Swedish Internet Foundation,r
+rfc9859,"deSEC, Secure Systems Engineering",deSEC,deSEC,r
+rfc9859,Standcore LLC,Unknown,Standcore,w
+rfc9858,NIST,National Institute of Standards and Technology,National Institute of Standards and Technology,r
+rfc9857,Individual,Unknown,Unknown,r
+rfc9857,RtBrick Inc.,RtBrick,RtBrick,r
+rfc9857,Nvidia,NVIDIA,NVIDIA,r
+rfc9855,INSA Lyon,Institut National des Sciences Appliquées de Lyon,Institut National des Sciences Appliquées de Lyon,r
+rfc9855,Bell Canada,Bell Canada,Bell Canada,r
+rfc9854,Blue Meadow Networks,Blue Meadow Networks,Blue Meadow Networks,r
+rfc9854,Indian Institute of Science,Indian Institute of Science,Indian Institute of Science,r
+rfc9854,SRM University-AP,"SRM University, Andhra Pradesh","SRM University, Andhra Pradesh",r
+rfc9845,North Carolina State University,North Carolina State University,North Carolina State University,r
+rfc9844,Check Point Software,Check Point Software Technologies,Check Point Software Technologies,r
+rfc9843,Juniper Networks Inc.,Juniper Networks,Juniper Networks,r
+rfc9842,Google LLC,Google,Google,r
+rfc9842,Shopify Inc,Shopify,Shopify,r
+rfc9841,"Google, Inc",Google,Google,r
+rfc9840,Universidad Carlos III de Madrid,Carlos III University of Madrid,Carlos III University of Madrid,r
+rfc9840,Confluent,Confluent,Confluent,r
+rfc9839,Textuality Services,Unknown,Textuality Services,w
+rfc9839,ICANN,Internet Corporation for Assigned Names and Numbers,Internet Corporation for Assigned Names and Numbers,r
+rfc9837,CERNET Center/Tsinghua University,Tsinghua University,Tsinghua University,r
+rfc9837,Old Dog Consulting,Old Dog Consulting,Old Dog Consulting,r
+rfc9837,NTT Communications Corporation,Nippon Telegraph and Telephone Corporation,Nippon Telegraph and Telephone Corporation,r
+rfc9837,Verizon,Verizon Communications,Verizon Communications,r
+rfc9836,Juniper,Juniper Networks,Juniper Networks,r
+rfc9831,Microsoft,Microsoft,Microsoft,r
+rfc9829,Workonline,Workonline Communications,Workonline Communications,r
+rfc9829,OpenBSD,OpenBSD Foundation,OpenBSD Foundation,r
+rfc9828,Sandflow Consulting LLC,Sandflow Consulting,Sandflow Consulting,r
+rfc9828,"University of New South Wales",University of New South Wales,University of New South Wales,r
+rfc9825,"LabN Consulting, L.L.C.",LabN Consulting,LabN Consulting,r
+rfc9825,Futurewei Technologies,Huawei,Huawei,r
+rfc9824,Salesforce,Salesforce,Salesforce,r
+rfc9824,Retired / Unaffiliated,Unknown,Unknown,r
+rfc9820,University of Murcia,University of Murcia,University of Murcia,r
+rfc9820,University of Oviedo,University of Oviedo,University of Oviedo,r
+rfc9818,QA Cafe,QA Cafe,QA Cafe,r
+rfc9817,RWTH Aachen University,RWTH Aachen University,RWTH Aachen University,r
+rfc9817,Huawei Technologies Duesseldorf GmbH,Huawei,Huawei,r
+rfc9817,McGill University,McGill University,McGill University,r
+rfc9817,"InterDigital Communications, LLC",InterDigital,InterDigital,r
+rfc9817,University College London,University College London,University College London,r
+rfc9816,"Arrcus, Inc.",Arrcus,Arrcus,r
+rfc9816,Linkedin,LinkedIn,LinkedIn,r
+rfc9815,"LabN Consulting, LLC",LabN Consulting,LabN Consulting,r
+rfc9815,LinkedIn,LinkedIn,LinkedIn,r
+rfc9813,InkBridge Networks,Huawei,InkBridge Networks,w
+rfc9812,The University of Auckland,University of Auckland,University of Auckland,r
+rfc9812,University of Minnesota,University of Minnesota,University of Minnesota,r
+rfc9811,Siemens,Siemens AG,Siemens AG,r
+rfc9809,Siemens Mobility,Siemens,Siemens,r
+rfc9808,Disney Streaming,The Walt Disney Company,The Walt Disney Company,r
+rfc9808,Vecima,Vecima Networks,Vecima Networks,r
+rfc9808,Qwilt,Qwilt,Qwilt,r
+rfc9807,Meta,Meta Platforms,Meta Platforms,r
+rfc9807,"Cloudflare, Inc.",Cloudflare,Cloudflare,r
+rfc9806,Motorola Solutions,Motorola Solutions,Motorola Solutions,r
+rfc9804,MIT CSAIL,Massachusetts Institute of Technology,Massachusetts Institute of Technology,r
+rfc9802,BSI,Bristol-Myers Squibb,Federal Office for Information Security,w
+rfc9802,genua GmbH,genua,genua GmbH,w
+rfc9799,AS207960 Cyfyngedig,Mythic Beasts,Glauca Digital,w
+rfc9798,Cisco,Cisco Systems,Cisco Systems,r
+rfc9797,Comcast,Comcast Corporation,Comcast,w
+rfc9796,Somos,Unknown,Somos,w
+rfc9796,TransUnion,TransUnion,TransUnion,r
+rfc9795,Somos Inc.,Somos,Somos,r
+rfc9795,Neustar Inc.,Neustar,Neustar,r
+rfc9794,Naval Postgraduate School,Naval Postgraduate School,Naval Postgraduate School,r
+rfc9792,China mobile,China Mobile,China Mobile,r
+rfc9790,University of Surrey 5GIC,University of Surrey,University of Surrey,r
+rfc9788,American Civil Liberties Union,American Civil Liberties Union,American Civil Liberties Union,r
+rfc9788,pEp Project,pEp Foundation,pEp Foundation,r
+rfc9788,Isode Ltd,Isode,Isode,r
+rfc9786,Verizon Wireless,Verizon Communications,Verizon Communications,r
+rfc9783,Arm Limited,Arm,Arm,r
+rfc9783,HP Labs,Hewlett-Packard Labs,Hewlett-Packard Labs,r
+rfc9782,Security Theory LLC,Unknown,Unknown,r
+rfc9782,Fraunhofer Institute for Secure Information Technology,Fraunhofer Society,Fraunhofer-Institut für Sichere Informationstechnologie SIT,w
+rfc9781,Fraunhofer SIT,Fraunhofer Institute for Secure Information Technology (Fraunhofer SIT),Fraunhofer-Institut für Sichere Informationstechnologie SIT,w
+rfc9781,Qualcomm Technologies Inc.,Qualcomm,Qualcomm,r
+rfc9781,Universität Bremen TZI,University of Bremen,University of Bremen,r
+rfc9779,"Universita di Roma ""Tor Vergata""",University of Rome Tor Vergata,University of Rome Tor Vergata,r
+rfc9778,Johns Hopkins University Applied Physics Lab,Johns Hopkins University,Johns Hopkins University,r
+rfc9775,University of Glasgow,University of Glasgow,University of Glasgow,r
+rfc9774,"Google, Inc.",Google,Google,r
+rfc9774,USA NIST,National Institute of Standards and Technology (NIST),National Institute of Standards and Technology (NIST),r
+rfc9773,Internet Security Research Group,Internet Security Research Group,Internet Security Research Group,r
+rfc9772,Ciena,Ciena,Ciena,r
+rfc9772,Dell EMC,Dell Technologies,Dell Technologies,r

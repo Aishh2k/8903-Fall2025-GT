@@ -1,0 +1,21 @@
+rfc_id,original_affiliation,human_normalized,run_1,run_2,run_3,unique_outputs,variance,consistent
+rfc9795,Neustar Inc.,Neustar,Neustar,Neustar,Neustar,1,0,Yes
+rfc9884,China Mobile,China Mobile,China Mobile Communications Corporation,China Mobile,China Mobile Communications Group,3,2,No
+rfc9898,Huawei Technologies,Huawei,Huawei,Huawei,Huawei,1,0,Yes
+rfc9863,Verizon Communications Inc.,Verizon Communications,Verizon Communications,Verizon Communications,Verizon Communications,1,0,Yes
+rfc9794,Naval Postgraduate School,Naval Postgraduate School,Naval Postgraduate School,Naval Postgraduate School,Naval Postgraduate School,1,0,Yes
+rfc9774,USA NIST,National Institute of Standards and Technology (NIST),National Institute of Standards and Technology (NIST),National Institute of Standards and Technology (NIST),National Institute of Standards and Technology (NIST),1,0,Yes
+rfc9843,Juniper Networks Inc.,Juniper Networks,Juniper Networks,Juniper Networks,Juniper Networks,1,0,Yes
+rfc9862,"Juniper Networks, Inc.",Juniper Networks,Juniper Networks,Juniper Networks,Juniper Networks,1,0,Yes
+rfc9808,Disney Streaming,The Walt Disney Company,The Walt Disney Company,The Walt Disney Company,The Walt Disney Company,1,0,Yes
+rfc9863,ZTE Corporation,ZTE,ZTE,ZTE,ZTE,1,0,Yes
+rfc9861,STMicroelectronics,STMicroelectronics,STMicroelectronics,STMicroelectronics,STMicroelectronics,1,0,Yes
+rfc9829,Workonline,Workonline Communications,Workonline Communications,Workonline Communications,Workonline Communications,1,0,Yes
+rfc9866,University of Warsaw,University of Warsaw,University of Warsaw,University of Warsaw,University of Warsaw,1,0,Yes
+rfc9817,RWTH Aachen University,RWTH Aachen University,RWTH Aachen University,RWTH Aachen University,RWTH Aachen University,1,0,Yes
+rfc9815,"LabN Consulting, LLC",LabN Consulting,LabN Consulting,LabN Consulting,LabN Consulting,1,0,Yes
+rfc9870,Nokia,Nokia,Nokia,Nokia,Nokia,1,0,Yes
+rfc9824,Retired / Unaffiliated,Unknown,Unknown,Unknown,Unknown,1,0,Yes
+rfc9865,Independent,Unknown,Unknown,Unknown,Unknown,1,0,Yes
+rfc9783,Arm Limited,Arm,Arm,Arm,Arm,1,0,Yes
+rfc9864,Self-Issued Consulting,Unknown,Unknown,Unknown,Unknown,1,0,Yes

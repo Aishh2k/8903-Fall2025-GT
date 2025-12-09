@@ -1,0 +1,23 @@
+rfc_id,original_affiliation,llm_normalized,human_normalized,label
+rfc9898,KPN,Royal KPN,KPN,w
+rfc9898,Energy Sciences Network,Lawrence Berkeley National Laboratory,Energy Sciences Network,w
+rfc9890,YumaWorks,Huawei,YumaWorks,w
+rfc9885,Cisco Systems,Cisco,Cisco Systems,w
+rfc9884,Blue Fern Consulting,Unknown,Blue Fern Consulting,w
+rfc9881,sn3rd,Snap Inc.,sn3rd,w
+rfc9878,Deutsche Telekom,Deutsche Telekom AG,Deutsche Telekom,w
+rfc9876,IoTconsultancy.nl,Unknown,IoTconsultancy.nl,w
+rfc9867,ELVIS-PLUS,ELVIS+,ELVIS-PLUS,w
+rfc9865,Amazon Web Services,Amazon,Amazon Web Services,w
+rfc9864,Transmute,Unknown,Transmute,w
+rfc9860,New H3C Technologies,Hewlett Packard Enterprise,H3C Technologies,w
+rfc9859,Standcore LLC,Unknown,Standcore,w
+rfc9839,Textuality Services,Unknown,Textuality Services,w
+rfc9813,InkBridge Networks,Huawei,InkBridge Networks,w
+rfc9802,BSI,Bristol-Myers Squibb,Federal Office for Information Security,w
+rfc9802,genua GmbH,genua,genua GmbH,w
+rfc9799,AS207960 Cyfyngedig,Mythic Beasts,Glauca Digital,w
+rfc9797,Comcast,Comcast Corporation,Comcast,w
+rfc9796,Somos,Unknown,Somos,w
+rfc9782,Fraunhofer Institute for Secure Information Technology,Fraunhofer Society,Fraunhofer-Institut für Sichere Informationstechnologie SIT,w
+rfc9781,Fraunhofer SIT,Fraunhofer Institute for Secure Information Technology (Fraunhofer SIT),Fraunhofer-Institut für Sichere Informationstechnologie SIT,w
