@@ -6,14 +6,12 @@ from openai import OpenAI
 from dotenv import load_dotenv
 load_dotenv()
 
-# Initialize OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 input_file = os.path.join(curr_dir, "affiliations_raw.csv")
 output_file = os.path.join(curr_dir, "gold_set.csv")
 
-# System prompt for normalization
 SYSTEM_PROMPT = """You are an expert in data normalization and entity resolution. Your task is to normalize raw affiliation strings to standardized organization names.
 You will be provided with a mapping dictionary of raw affiliation variants and their corresponding normalized names.
 Your goal is to match a given input affiliation string to the correct normalized affiliation,
@@ -42,11 +40,8 @@ Use fuzzy matching or logical rules if needed, but ensure high precision."""
 
 
 def normalize_affiliation(affiliation, model="gpt-4.1", temperature=0):
-    """Send affiliation to GPT for normalization"""
     try:
-        user_prompt = f"""Task:
-Normalize these affiliations:
-{affiliation}"""
+        user_prompt = f"""Task: Normalize these affiliations:{affiliation}"""
         
         response = client.chat.completions.create(
             model=model,
@@ -60,7 +55,6 @@ Normalize these affiliations:
         
         result = response.choices[0].message.content.strip()
         
-        # Remove markdown formatting if present
         if result.startswith('```json'):
             result = result.replace('```json', '').replace('```', '').strip()
         elif result.startswith('```'):
@@ -76,7 +70,6 @@ Normalize these affiliations:
             else:
                 return result
         except json.JSONDecodeError:
-            # If not valid JSON, return as-is (fallback)
             return result
         
     except Exception as e:
@@ -248,12 +241,10 @@ def validate_normalizations():
     print(f"NO EXISTING GOLD SET FOUND")
     print(f"Proceeding with human validation...\n")
     
-    # Check if input file exists
     if not os.path.exists(input_file):
         print(f"ERROR: Input file not found: {input_file}")
         return
     
-    # Check for API key
     if not os.getenv("OPENAI_API_KEY"):
         print("ERROR: OPENAI_API_KEY environment variable not set!")
         print("Set it with: export OPENAI_API_KEY='your-key-here'")
@@ -291,7 +282,6 @@ def validate_normalizations():
     print(f"Total affiliations: {len(affiliations)}")
     print(f"Model: gpt-4.1")
     
-    # Initialize validation list
     validated = []
     
     response = input(f"\nProceed with GPT-4.1 normalization and validation? (y/n): ")
