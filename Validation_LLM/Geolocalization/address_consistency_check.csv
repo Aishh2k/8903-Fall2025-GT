@@ -1,0 +1,21 @@
+rfc_id,original_address,human_country,human_continent,run_1_country,run_1_continent,run_2_country,run_2_continent,run_3_country,run_3_continent,unique_outputs,variance,consistent
+rfc8997,Mauritius,Mauritius,Africa,Mauritius,Africa,Mauritius,Africa,Mauritius,Africa,1,0,Yes
+rfc9878,Finland,Finland,Europe,Finland,Europe,Finland,Europe,Finland,Europe,1,0,Yes
+rfc6756,"Boulder, CO 80303-1262 USA",United States of America,North America,United States of America,North America,United States of America,North America,United States of America,North America,1,0,Yes
+rfc9830,IT,Italy,Europe,Italy,Europe,Italy,Europe,Italy,Europe,1,0,Yes
+rfc8271,"Banglore, India",India,Asia,India,Asia,India,Asia,India,Asia,1,0,Yes
+rfc6983,the Netherlands,Netherlands,Europe,Netherlands,Europe,Netherlands,Europe,Netherlands,Europe,1,0,Yes
+rfc6936,"Scotland, UK",United Kingdom,Europe,United Kingdom,Europe,United Kingdom,Europe,United Kingdom,Europe,1,0,Yes
+rfc8383,"Nanjing 210012, China",China,Asia,China,Asia,China,Asia,China,Asia,1,0,Yes
+rfc6666,IE,Ireland,Europe,Ireland,Europe,Ireland,Europe,Ireland,Europe,1,0,Yes
+rfc9065,Scotland,United Kingdom,Europe,United Kingdom,Europe,United Kingdom,Europe,United Kingdom,Europe,1,0,Yes
+rfc6691,"Mendota Heights, MN  55120",United States of America,North America,United States of America,North America,United States of America,North America,United States of America,North America,1,0,Yes
+rfc6611,Tewksbury MA 01876,United States of America,North America,United States of America,North America,United States of America,North America,United States of America,North America,1,0,Yes
+rfc9600,"Milford, MA 01757 USA",United States of America,North America,United States of America,North America,United States of America,North America,United States of America,North America,1,0,Yes
+rfc7298,Russia,Russia,Europe,Russia,Europe,Russia,Europe,Russia,Europe,1,0,Yes
+rfc9388,Israel,Israel,Asia,Israel,Asia,Israel,Asia,Israel,Asia,1,0,Yes
+rfc8866,Turkey,Turkey,Asia,Turkey,Asia,Turkey,Asia,Turkey,Asia,1,0,Yes
+rfc9166,"Chaoyang District Beijing 100102, China",China,Asia,China,Asia,China,Asia,China,Asia,1,0,Yes
+rfc9425,Vietnam,Vietnam,Asia,Vietnam,Asia,Vietnam,Asia,Vietnam,Asia,1,0,Yes
+rfc8454,"Plano, TX 75023, USA",United States of America,North America,United States of America,North America,United States of America,North America,United States of America,North America,1,0,Yes
+rfc8107,"New York, NY 10017",United States of America,North America,United States of America,North America,United States of America,North America,United States of America,North America,1,0,Yes

@@ -9,39 +9,24 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
-input_file = os.path.join(curr_dir, "affiliations_raw.csv")
-output_file = os.path.join(curr_dir, "affiliation_gold_set.csv")
+input_file = os.path.join(curr_dir, "address_raw.csv")
+output_file = os.path.join(curr_dir, "address_gold_set.csv")
+error_file = os.path.join(curr_dir, "address_error_samples.csv")
+consistency_file = os.path.join(curr_dir, "address_consistency_check.csv")
 
-SYSTEM_PROMPT = """You are an expert in data normalization and entity resolution. Your task is to normalize raw affiliation strings to standardized organization names.
-You will be provided with a mapping dictionary of raw affiliation variants and their corresponding normalized names.
-Your goal is to match a given input affiliation string to the correct normalized affiliation,
-using the rules implied by the mapping.
+SYSTEM_PROMPT = """Which country and continent is this address located in?
+Simply return a JSON object with two fields: "country" and "continent".
+Make sure the names are in consistent format.
+For example, dont use U.S for one address and United States of America for other.
+Write complete names only always.
 
-Rules to follow:
-1. Normalize abbreviations and acronyms to full institution names.
-2. Handle punctuation, spacing, and capitalization inconsistencies.
-3. Recognize when brand names or departments belong to a parent company or university and map accordingly.
-4. Account for multilingual or localized versions of university or organization names.
-5. If an affiliation cannot be matched to any known mapping, return "Unknown".
-
-Input:
-You will receive a string representing a person's affiliation.
-
-Output:
-Return the normalized name. Do not add any additional text in the output please.
-
-Example:
-If the input is "UC Berkeley", return "University of California, Berkeley".
-If the input is "ATT", return "AT&T".
-If the input is "Futurewei", return "Huawei".
-If the input is "Independent researcher", return "Unknown".
-
-Use fuzzy matching or logical rules if needed, but ensure high precision."""
+Return ONLY the JSON object in this format:
+{"country": "country name", "continent": "continent name"}"""
 
 
-def normalize_affiliation(affiliation, model="gpt-4.1", temperature=0):
+def normalize_address(address, model="gpt-4.1", temperature=0):
     try:
-        user_prompt = f"""Task: Normalize these affiliations:{affiliation}"""
+        user_prompt = address
         
         response = client.chat.completions.create(
             model=model,
@@ -50,7 +35,7 @@ def normalize_affiliation(affiliation, model="gpt-4.1", temperature=0):
                 {"role": "user", "content": user_prompt}
             ],
             temperature=temperature,
-            max_tokens=150
+            max_tokens=100
         )
         
         result = response.choices[0].message.content.strip()
@@ -60,25 +45,22 @@ def normalize_affiliation(affiliation, model="gpt-4.1", temperature=0):
         elif result.startswith('```'):
             result = result.replace('```', '').strip()
         
-        # Parse JSON response
         try:
             json_result = json.loads(result)
-            # Extract the normalized value from the JSON
-            if isinstance(json_result, dict):
-                # Should have the affiliation as key
-                return json_result.get(affiliation, list(json_result.values())[0] if json_result else result)
-            else:
-                return result
+            country = json_result.get('country', 'Unknown')
+            continent = json_result.get('continent', 'Unknown')
+            return country, continent
         except json.JSONDecodeError:
-            return result
+            print(f"  Warning: Could not parse JSON response: {result}")
+            return "ERROR", "ERROR"
         
     except Exception as e:
-        print(f"  Error processing '{affiliation}': {e}")
-        return "ERROR"
+        print(f"  Error processing '{address}': {e}")
+        return "ERROR", "ERROR"
 
 
 def load_existing_gold_set():
-    """Load existing gold_set.csv if it exists and has data"""
+    """Load existing address_gold_set.csv if it exists and has data"""
     if not os.path.exists(output_file):
         return None
     
@@ -94,8 +76,31 @@ def load_existing_gold_set():
         
         return validated
     except Exception as e:
-        print(f"Warning: Could not read existing gold_set.csv: {e}")
+        print(f"Warning: Could not read existing address_gold_set.csv: {e}")
         return None
+
+
+def save_error_samples(validated):
+    """Save ALL incorrect normalizations to address_error_samples.csv"""
+    error_cases = [v for v in validated if v['label'] == 'w']
+    
+    if not error_cases:
+        print(f"\nNo error cases to save (all normalizations were correct!)")
+        return
+    
+    try:
+        with open(error_file, 'w', newline='', encoding='utf-8') as f:
+            fieldnames = ['rfc_id', 'original_address', 'llm_normalized_country', 
+                        'llm_normalized_continent', 'human_normalized_country', 
+                        'human_normalized_continent']
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(error_cases)
+        
+        print(f"Error samples saved to: {error_file}")
+        print(f"Total error cases: {len(error_cases)}")
+    except Exception as e:
+        print(f"ERROR saving error samples: {e}")
 
 
 def print_statistics(validated):
@@ -124,6 +129,8 @@ def print_statistics(validated):
     print(f"Proportion of incorrect normalizations:")
     print(f"Error Rate = W / N = {w} / {N} = {error_rate:.2f}%")
     
+    save_error_samples(validated)
+    
     # Consistency Check
     correct_cases = [v for v in validated if v['label'] == 'r']
     if len(correct_cases) >= 20:
@@ -131,7 +138,6 @@ def print_statistics(validated):
         print(f"CONSISTENCY CHECK")
         print(f"{'='*70}")
         
-        # Check if API key is available for consistency check
         if not os.getenv("OPENAI_API_KEY"):
             print(f"Skipping consistency check: OPENAI_API_KEY not set")
             return
@@ -148,25 +154,27 @@ def print_statistics(validated):
         
         for idx, case in enumerate(sample_cases, 1):
             rfc_id = case['rfc_id']
-            original = case['original_affiliation']
-            human_norm = case['human_normalized']
+            original = case['original_address']
+            human_country = case['human_normalized_country']
+            human_continent = case['human_normalized_continent']
             
             print(f"[{idx}/20] RFC: {rfc_id} - Testing: {original}")
             
-            # Run 3 times with temperature=0 for deterministic results
             runs = []
             for run in range(3):
-                result = normalize_affiliation(original, temperature=0)
-                runs.append(result)
+                country, continent = normalize_address(original, temperature=0)
+                runs.append({'country': country, 'continent': continent})
                 time.sleep(0.5)
             
-            # Check consistency
-            all_same = all(r == runs[0] for r in runs)
+            all_same = all(
+                r['country'] == runs[0]['country'] and r['continent'] == runs[0]['continent']
+                for r in runs
+            )
             consistent = "✓ Consistent" if all_same else "✗ Inconsistent"
             
             # Calculate variance: number of unique outputs
-            unique_outputs = len(set(runs))
-            variance = unique_outputs - 1  # 0 = no variance, 1 = 2 unique, 2 = 3 unique
+            unique_outputs = len(set((r['country'], r['continent']) for r in runs))
+            variance = unique_outputs - 1
             total_variance += variance
             
             if not all_same:
@@ -174,19 +182,23 @@ def print_statistics(validated):
             
             consistency_results.append({
                 'rfc_id': rfc_id,
-                'original_affiliation': original,
-                'human_normalized': human_norm,
-                'run_1': runs[0],
-                'run_2': runs[1],
-                'run_3': runs[2],
+                'original_address': original,
+                'human_country': human_country,
+                'human_continent': human_continent,
+                'run_1_country': runs[0]['country'],
+                'run_1_continent': runs[0]['continent'],
+                'run_2_country': runs[1]['country'],
+                'run_2_continent': runs[1]['continent'],
+                'run_3_country': runs[2]['country'],
+                'run_3_continent': runs[2]['continent'],
                 'unique_outputs': unique_outputs,
                 'variance': variance,
                 'consistent': 'Yes' if all_same else 'No'
             })
             
-            print(f"  Run 1: {runs[0]}")
-            print(f"  Run 2: {runs[1]}")
-            print(f"  Run 3: {runs[2]}")
+            print(f"  Run 1: {runs[0]['country']}, {runs[0]['continent']}")
+            print(f"  Run 2: {runs[1]['country']}, {runs[1]['continent']}")
+            print(f"  Run 3: {runs[2]['country']}, {runs[2]['continent']}")
             print(f"  Unique outputs: {unique_outputs}, Variance: {variance}")
             print(f"  {consistent}\n")
         
@@ -208,10 +220,11 @@ def print_statistics(validated):
         print(f"  (0 = all same, 1 = 2 different, 2 = all different)")
         
         # Save consistency check results
-        consistency_file = os.path.join(curr_dir, "consistency_check.csv")
         try:
             with open(consistency_file, 'w', newline='', encoding='utf-8') as f:
-                fieldnames = ['rfc_id', 'original_affiliation', 'human_normalized', 'run_1', 'run_2', 'run_3', 'unique_outputs', 'variance', 'consistent']
+                fieldnames = ['rfc_id', 'original_address', 'human_country', 'human_continent',
+                            'run_1_country', 'run_1_continent', 'run_2_country', 'run_2_continent',
+                            'run_3_country', 'run_3_continent', 'unique_outputs', 'variance', 'consistent']
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
                 writer.writerows(consistency_results)
@@ -226,7 +239,6 @@ def print_statistics(validated):
 
 
 def validate_normalizations():
-    # Check if gold_set.csv already exists and has data
     existing_data = load_existing_gold_set()
     if existing_data is not None:
         print(f"\n{'='*70}")
@@ -250,36 +262,34 @@ def validate_normalizations():
         print("Set it with: export OPENAI_API_KEY='your-key-here'")
         return
     
-    # Read raw affiliations and validate columns
-    affiliations = []
+    addresses = []
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             fieldnames = reader.fieldnames
             
-            # Validate required columns
-            if not fieldnames or 'rfc_id' not in fieldnames or 'original_affiliation' not in fieldnames:
-                print("ERROR: CSV must have 'rfc_id' and 'original_affiliation' columns")
+            if not fieldnames or 'rfc_id' not in fieldnames or 'original_address' not in fieldnames:
+                print("ERROR: CSV must have 'rfc_id' and 'original_address' columns")
                 print(f"Found columns: {fieldnames}")
                 return
             
             for row in reader:
-                affiliations.append({
+                addresses.append({
                     'rfc_id': row['rfc_id'],
-                    'original_affiliation': row['original_affiliation']
+                    'original_address': row['original_address']
                 })
     except Exception as e:
         print(f"ERROR reading input file: {e}")
         return
     
-    if not affiliations:
-        print("ERROR: No affiliations found in input file")
+    if not addresses:
+        print("ERROR: No addresses found in input file")
         return
     
     print(f"\n{'='*70}")
-    print(f"AFFILIATION NORMALIZATION & VALIDATION")
+    print(f"ADDRESS NORMALIZATION & VALIDATION")
     print(f"{'='*70}")
-    print(f"Total affiliations: {len(affiliations)}")
+    print(f"Total addresses: {len(addresses)}")
     print(f"Model: gpt-4.1")
     
     validated = []
@@ -291,69 +301,80 @@ def validate_normalizations():
     
     print(f"\n{'='*70}")
     print(f"VALIDATION INSTRUCTIONS:")
-    print(f"  - Review LLM's normalization")
-    print(f"  - Press ENTER if LLM is correct (label = r)")
-    print(f"  - Type correct normalization if LLM is wrong (label = w)")
+    print(f"  - Review LLM's country and continent extraction")
+    print(f"  - Enter correct country and continent (comma-separated)")
+    print(f"  - Press ENTER if LLM is completely correct (label = r)")
     print(f"  - Type 'quit' to save and exit")
+    print(f"  - Label = r ONLY if BOTH country AND continent are correct")
     print(f"{'='*70}\n")
     
-    # Process each affiliation
-    for i in range(len(affiliations)):
-        rfc_id = affiliations[i]['rfc_id']
-        original = affiliations[i]['original_affiliation']
+    for i in range(len(addresses)):
+        rfc_id = addresses[i]['rfc_id']
+        original = addresses[i]['original_address']
         
-        print(f"\n[{i+1}/{len(affiliations)}] " + "="*50)
+        print(f"\n[{i+1}/{len(addresses)}] " + "="*50)
         print(f"RFC: {rfc_id}")
         print(f"Processing: {original}")
         
-        # Get LLM normalization
         print("Getting LLM normalization...")
-        llm_normalized = normalize_affiliation(original, temperature=0)
+        llm_country, llm_continent = normalize_address(original, temperature=0)
         
-        if llm_normalized == "ERROR":
+        if llm_country == "ERROR" or llm_continent == "ERROR":
             print("ERROR: Failed to get LLM normalization. Skipping this entry.")
             response = input("Press ENTER to continue or 'quit' to exit: ")
             if response.lower() == 'quit':
                 break
             continue
         
-        print(f"\nOriginal:       {original}")
-        print(f"LLM Normalized: {llm_normalized}")
+        print(f"\nOriginal:        {original}")
+        print(f"LLM Country:     {llm_country}")
+        print(f"LLM Continent:   {llm_continent}")
         print("-"*60)
         
-        # Get human validation
-        human_input = input("Correct normalization (ENTER if LLM correct, or type correction): ").strip()
+        human_input = input("Correct normalization (ENTER if correct, or type 'country, continent'): ").strip()
         
-        # Handle quit
         if human_input.lower() == 'quit':
-            print(f"\nSaving progress... Validated {len(validated)} out of {len(affiliations)}.")
+            print(f"\nSaving progress... Validated {len(validated)} out of {len(addresses)}.")
             break
         
-        # Determine correct normalization and label
         if not human_input:
-            # User pressed ENTER - LLM is correct
-            human_normalized = llm_normalized
+            # User pressed ENTER - LLM is correct for both
+            human_country = llm_country
+            human_continent = llm_continent
             label = 'r'
             print("✓ LLM correct (label = r)")
         else:
-            # User typed something - LLM is wrong
-            human_normalized = human_input
-            label = 'w'
-            print("✗ LLM incorrect (label = w)")
+            parts = [p.strip() for p in human_input.split(',')]
+            if len(parts) != 2:
+                print("ERROR: Please enter 'country, continent' separated by comma")
+                i -= 1  
+                continue
+            
+            human_country = parts[0]
+            human_continent = parts[1]
+            
+            if human_country == llm_country and human_continent == llm_continent:
+                label = 'r'
+                print("✓ LLM correct (label = r)")
+            else:
+                label = 'w'
+                print("✗ LLM incorrect (label = w)")
         
-        # Add to validated list
         validated.append({
             'rfc_id': rfc_id,
-            'original_affiliation': original,
-            'llm_normalized': llm_normalized,
-            'human_normalized': human_normalized,
+            'original_address': original,
+            'llm_normalized_country': llm_country,
+            'llm_normalized_continent': llm_continent,
+            'human_normalized_country': human_country,
+            'human_normalized_continent': human_continent,
             'label': label
         })
         
-        # Save after each validation
         try:
             with open(output_file, 'w', newline='', encoding='utf-8') as f:
-                fieldnames = ['rfc_id', 'original_affiliation', 'llm_normalized', 'human_normalized', 'label']
+                fieldnames = ['rfc_id', 'original_address', 'llm_normalized_country', 
+                            'llm_normalized_continent', 'human_normalized_country', 
+                            'human_normalized_continent', 'label']
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
                 writer.writerows(validated)
@@ -361,16 +382,18 @@ def validate_normalizations():
             print(f"ERROR saving output file: {e}")
             return
         
-        # Small delay to avoid rate limits
-        if i < len(affiliations) - 1:
+        if i < len(addresses) - 1:
             time.sleep(0.3)
     
-    # Final summary and statistics
     if validated:
         print_statistics(validated)
     
     print(f"\n{'='*70}")
-    print(f"Gold set saved to: {output_file}")
+    print(f"OUTPUT FILES GENERATED")
+    print(f"{'='*70}")
+    print(f"1. Gold set: {output_file}")
+    print(f"2. Error samples: {error_file}")
+    print(f"3. Consistency check: {consistency_file}")
     print(f"{'='*70}\n")
 
 

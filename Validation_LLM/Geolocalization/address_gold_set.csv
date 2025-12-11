@@ -1,0 +1,151 @@
+rfc_id,original_address,llm_normalized_country,llm_normalized_continent,human_normalized_country,human_normalized_continent,label
+rfc9903,USA,United States of America,North America,United States of America,North America,r
+rfc9898,"Hansaallee 205, 40549 Dusseldorf, Germany",Germany,Europe,Germany,Europe,r
+rfc9891,United States of America,United States of America,North America,United States of America,North America,r
+rfc9889,Austria,Austria,Europe,Austria,Europe,r
+rfc9885,India,India,Asia,India,Asia,r
+rfc9884,China,China,Asia,China,Asia,r
+rfc9883,US,United States of America,North America,United States of America,North America,r
+rfc9879,Czech Republic,Czech Republic,Europe,Czech Republic,Europe,r
+rfc9878,Finland,Finland,Europe,Finland,Europe,r
+rfc9870,France,France,Europe,France,Europe,r
+rfc9869,UK,United Kingdom,Europe,United Kingdom,Europe,r
+rfc9868,"Redwood City, CA 94064-2667 USA",United States of America,North America,United States of America,North America,r
+rfc9867,RU,Russia,Europe,Russia,Europe,r
+rfc9866,Poland,Poland,Europe,Poland,Europe,r
+rfc9862,Canada,Canada,North America,Canada,North America,r
+rfc9861,The Netherlands,Netherlands,Europe,Netherlands,Europe,r
+rfc9854,United States,United States,North America,United States of America,North America,w
+rfc9838,Russian Federation,Russia,Europe,Russia,Europe,r
+rfc9830,IT,Italy,Europe,Italy,Europe,r
+rfc9829,South Africa,South Africa,Africa,South Africa,Africa,r
+rfc9820,Spain,Spain,Europe,Spain,Europe,r
+rfc9817,Germany,Germany,Europe,Germany,Europe,r
+rfc9799,United Kingdom,United Kingdom,Europe,United Kingdom,Europe,r
+rfc9770,Sweden,Sweden,Europe,Sweden,Europe,r
+rfc9762,Japan,Japan,Asia,Japan,Asia,r
+rfc9756,IN,India,Asia,India,Asia,r
+rfc9730,"Guangdong, 523808 China",China,Asia,China,Asia,r
+rfc9718,Netherlands,Netherlands,Europe,Netherlands,Europe,r
+rfc9698,Belgium,Belgium,Europe,Belgium,Europe,r
+rfc9693,Hungary,Hungary,Europe,Hungary,Europe,r
+rfc9691,Uruguay,Uruguay,South America,Uruguay,South America,r
+rfc9676,Italy,Italy,Europe,Italy,Europe,r
+rfc9670,Australia,Australia,Oceania,Oceania,Oceania,r
+rfc9660,CL,Chile,South America,Chile,South America,r
+rfc9639,NL,Netherlands,Europe,Netherlands,Europe,r
+rfc9622,Switzerland,Switzerland,Europe,Switzerland,Europe,r
+rfc9604,BELGIUM,Belgium,Europe,Belgium,Europe,r
+rfc9600,"Milford, MA 01757 USA",United States of America,North America,United States of America,North America,r
+rfc9578,Portugal,Portugal,Europe,Portugal,Europe,r
+rfc9556,Republic of Korea,South Korea,Asia,South Korea,Asia,r
+rfc9551,FRANCE,France,Europe,France,Europe,r
+rfc9524,CA,Canada,North America,Canada,North America,r
+rfc9500,New Zealand,New Zealand,Oceania,New Zealand,Oceania,r
+rfc9498,DE,Germany,Europe,Germany,Europe,r
+rfc9492,Slovakia,Slovakia,Europe,Slovakia,Europe,r
+rfc9455,P.R. China,China,Asia,China,Asia,r
+rfc9453,South Korea,South Korea,Asia,South Korea,Asia,r
+rfc9446,Ireland,Ireland,Europe,Ireland,Europe,r
+rfc9425,Vietnam,Vietnam,Asia,Vietnam,Asia,r
+rfc9416,Argentina,Argentina,South America,Argentina,South America,r
+rfc9398,"ChaoYANG District Beijing 100102, China",China,Asia,China,Asia,r
+rfc9388,Israel,Israel,Asia,Israel,Asia,r
+rfc9321,SE,Sweden,Europe,Sweden,Europe,r
+rfc9251,UNITED STATES,United States of America,North America,United States of America,North America,r
+rfc9245,FI,Finland,Europe,Finland,Europe,r
+rfc9236,Korea,South Korea,Asia,South Korea,Asia,r
+rfc9235,"FI-02630 Espoo, Finland",Finland,Europe,Finland,Europe,r
+rfc9231,"Apopka, FL 32703 USA",United States of America,North America,United States of America,North America,r
+rfc9223,"Anzinger Str. 13, 81671, Munich, Germany",Germany,Europe,Germany,Europe,r
+rfc9222,NZ,New Zealand,Oceania,New Zealand,Oceania,r
+rfc9184,AT,Austria,Europe,Austria,Europe,r
+rfc9166,"Chaoyang District Beijing 100102, China",China,Asia,China,Asia,r
+rfc9155,MU,Mauritius,Africa,Mauritius,Africa,r
+rfc9136,"Mountain View, CA 94043 USA",United States of America,North America,United States of America,North America,r
+rfc9131,AU,Australia,Oceania,Australia,Oceania,r
+rfc9103,Amsterdam,Netherlands,Europe,Netherlands,Europe,r
+rfc9087,BE,Belgium,Europe,Belgium,Europe,r
+rfc9065,Scotland,United Kingdom,Europe,United Kingdom,Europe,r
+rfc9062,"San Jose, CA 95134, USA",United States of America,North America,United States of America,North America,r
+rfc9032,Chile,Chile,South America,Chile,South America,r
+rfc9018,CZ,Czech Republic,Europe,Czech Republic,Europe,r
+rfc8997,Mauritius,Mauritius,Africa,Mauritius,Africa,r
+rfc8963,U.S.A,United States of America,North America,United States of America,North America,r
+rfc8961,"Berkeley, CA  94704",United States of America,North America,United States of America,North America,r
+rfc8925,JP,Japan,Asia,Japan,Asia,r
+rfc8923,Norway,Norway,Europe,Norway,Europe,r
+rfc8911,SPAIN,Spain,Europe,Spain,Europe,r
+rfc8905,LU,Luxembourg,Europe,Luxembourg,Europe,r
+rfc8903,Singapore,Singapore,Asia,Singapore,Asia,r
+rfc8882,U.S.A.,United States of America,North America,United States of America,North America,r
+rfc8866,Turkey,Turkey,Asia,Turkey,Asia,r
+rfc8822,"San Jose, CA  95054 USA",United States of America,North America,United States of America,North America,r
+rfc8780,"Plano, TX 75024, USA",United States of America,North America,United States of America,North America,r
+rfc8762,P.R.China,China,Asia,China,Asia,r
+rfc8709,UNITED KINGDOM,United Kingdom,Europe,United Kingdom,Europe,r
+rfc8691,Morocco,Morocco,Africa,Morocco,Africa,r
+rfc8684,Romania,Romania,Europe,Romania,Europe,r
+rfc8625,"Chengdu 611731, P.R.China",China,Asia,China,Asia,r
+rfc8575,"Shenzhen 518129, China",China,Asia,China,Asia,r
+rfc8483,P. R. China,China,Asia,China,Asia,r
+rfc8456,PA 19113,United States of America,North America,United States of America,North America,r
+rfc8454,"Plano, TX 75023, USA",United States of America,North America,United States of America,North America,r
+rfc8453,"Stockholm, Sweden",Sweden,Europe,Sweden,Europe,r
+rfc8385,"Bengaluru - 560103, India",India,Asia,India,Asia,r
+rfc8383,"Nanjing 210012, China",China,Asia,China,Asia,r
+rfc8361,PR China,China,Asia,China,Asia,r
+rfc8316,Brazil,Brazil,South America,Brazil,South America,r
+rfc8276,"San Jose, CA 95110",United States of America,North America,United States of America,North America,r
+rfc8271,"Banglore, India",India,Asia,India,Asia,r
+rfc8243,"Bellevue, WA 98007 USA",United States of America,North America,United States of America,North America,r
+rfc8209,"Concord, MA 01742",United States of America,North America,United States of America,North America,r
+rfc8173,USA.,United States of America,North America,United States of America,North America,r
+rfc8171,"Milford, MA 01757, USA",United States of America,North America,United States of America,North America,r
+rfc8107,"New York, NY 10017",United States of America,North America,United States of America,North America,r
+rfc8105,Denmark,Denmark,Europe,Denmark,Europe,r
+rfc8095,Aberdeen AB24 3UE,United Kingdom,Europe,United Kingdom,Europe,r
+rfc8086,"Beijing, China",China,Asia,China,Asia,r
+rfc7967,"Kolkata, India",India,Asia,India,Asia,r
+rfc7926,"Boxborough, MA  01719",United States of America,North America,United States of America,North America,r
+rfc7906,National Security Agency,United States of America,North America,United States of America,North America,r
+rfc7815,FINLAND,Finland,Europe,Finland,Europe,r
+rfc7669,"Trumansburg, NY  14886",United States of America,North America,United States of America,North America,r
+rfc7594,England,United Kingdom,Europe,United Kingdom,Europe,r
+rfc7589,"Dubai, United Arab Emirates",United Arab Emirates,Asia,United Arab Emirates,Asia,r
+rfc7585,Luxembourg,Luxembourg,Europe,Luxembourg,Europe,r
+rfc7467,7010,Australia,Oceania,Australia,Oceania,r
+rfc7426,Greece,Greece,Europe,Greece,Europe,r
+rfc7384,"Yokneam, 20692 Israel",Israel,Asia,Israel,Asia,r
+rfc7325,"Cupertino, California  95014",United States of America,North America,United States of America,North America,r
+rfc7298,Russia,Russia,Europe,Russia,Europe,r
+rfc7278,"Bellevue, Washington, USA",United States of America,North America,United States of America,North America,r
+rfc7239,Linkoping  SE-582 24,Sweden,Europe,Sweden,Europe,r
+rfc7168,"Hollywood, CA 90028",United States of America,North America,United States of America,North America,r
+rfc7160,Thailand,Thailand,Asia,Thailand,Asia,r
+rfc7074,22307 Lannion Cedex -- France,France,Europe,France,Europe,r
+rfc7057,LUXEMBOURG,Luxembourg,Europe,Luxembourg,Europe,r
+rfc7022,CANADA,Canada,North America,Canada,North America,r
+rfc6994,"Marina del Rey, CA 90292-6695 U.S.A.",United States of America,North America,United States of America,North America,r
+rfc6983,the Netherlands,Netherlands,Europe,Netherlands,Europe,r
+rfc6936,"Scotland, UK",United Kingdom,Europe,United Kingdom,Europe,r
+rfc6934,"Waltham, MA 02451",United States of America,North America,United States of America,North America,r
+rfc6891,ES,Spain,Europe,Spain,Europe,r
+rfc6877,JAPAN,Japan,Asia,Japan,Asia,r
+rfc6876,"Carlsbad, CA  92009",United States of America,North America,United States of America,North America,r
+rfc6870,"Mountain View, CA, 94043, USA",United States of America,North America,United States of America,North America,r
+rfc6827,"Waltham, MA 02451 USA",United States of America,North America,United States of America,North America,r
+rfc6770,FR,France,Europe,France,Europe,r
+rfc6756,"Boulder, CO 80303-1262 USA",United States of America,North America,United States of America,North America,r
+rfc6747,95125 USA,United States of America,North America,United States of America,North America,r
+rfc6723,"Shanghai, 201203, China",China,Asia,China,Asia,r
+rfc6695,"RTP, NC  27709-4987",United States of America,North America,United States of America,North America,r
+rfc6691,"Mendota Heights, MN  55120",United States of America,North America,United States of America,North America,r
+rfc6666,IE,Ireland,Europe,Ireland,Europe,r
+rfc6653,"Plano, TX  75074",United States of America,North America,United States of America,North America,r
+rfc6611,Tewksbury MA 01876,United States of America,North America,United States of America,North America,r
+rfc6604,"Milford, MA  01757",United States of America,North America,United States of America,North America,r
+rfc6601,"Ashburn, VA  20147",United States of America,North America,United States of America,North America,r
+rfc6580,"Hopkinton, MA 01748, USA",United States of America,North America,United States of America,North America,r
+rfc6579,Ukraine,Ukraine,Europe,Ukraine,Europe,r
+rfc6572,"Plano, TX  75075",United States of America,North America,United States of America,North America,r
